@@ -18,7 +18,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Corinna Laabs Portfolio',
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
