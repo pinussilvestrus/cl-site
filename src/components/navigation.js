@@ -15,7 +15,7 @@ export default () => (
         <Link to="/blog" activeClassName={styles.navigationItemActive}>blog</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/" activeClassName={styles.navigationItemActive}>kontakt</Link>
+        <Link to="/contact" activeClassName={styles.navigationItemActive}>kontakt</Link>
       </li>
     </ul>
   </nav>

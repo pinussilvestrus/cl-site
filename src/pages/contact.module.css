@@ -1,0 +1,18 @@
+.contact .hello {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  text-align: center;
+  color: black;
+}
+
+.contact .introduction {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: right;
+}
