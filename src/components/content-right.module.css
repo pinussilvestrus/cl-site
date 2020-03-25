@@ -1,0 +1,6 @@
+.content-right {
+  grid-column: 2;
+  background: #EFC8A5;
+  padding-left: 50px;
+  padding-right: 50px
+}

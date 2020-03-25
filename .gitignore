@@ -108,3 +108,5 @@ dist
 .env.production
 
 public
+
+.DS_Store
