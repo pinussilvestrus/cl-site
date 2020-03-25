@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import styles from "./content-right.module.css"
+import css from "./content-right.module.css";
 
-export default ({ children }) => (
-  <div className={styles.contentRight}>
-    {children}
-  </div>
-)
+class ContentRight extends React.Component {
+  render() {
+    const { children, bgColor } = this.props;
+
+    const styles = {
+      background: bgColor
+    };
+
+    return (
+      <div className={css.contentRight} style={styles}>
+        {children}
+      </div>
+    );
+  }
+}
+
+export default ContentRight;

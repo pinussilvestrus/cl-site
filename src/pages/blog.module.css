@@ -1,10 +1,18 @@
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 61.8vh;
-  max-height: 400px;
-  background: #e1e1e1;
-  font-size: 2em;
-  overflow: hidden;
+.blog .hello {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  text-align: left;
+  color: black;
+}
+
+.blog .sidebar {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: left;
 }

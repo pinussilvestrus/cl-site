@@ -1,4 +1,4 @@
-.hello {
+.home .hello {
   font-family: "Lobster";
   font-style: normal;
   font-weight: bold;
@@ -8,7 +8,7 @@
   color: black;
 }
 
-.introduction {
+.home .introduction {
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: lighter;

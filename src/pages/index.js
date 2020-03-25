@@ -17,11 +17,18 @@ class RootIndex extends React.Component {
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} dimen="1fr 1fr">
         <MainLeft>
-          <Hero data={author.node}></Hero>
-          <p className={styles.hello}>hallo.</p>
-          <p className={styles.introduction}>Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. </p>
+          <div className={styles.home}>
+            <Hero data={author.node}></Hero>
+            <p className={styles.hello}>hallo.</p>
+            <p className={styles.introduction}>
+              Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken
+              kann. Es war nicht leicht zu verstehen, was es bedeutet, ein
+              blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen
+              Sinn.
+            </p>
+          </div>
         </MainLeft>
         <ContentRight>
           <Navigation />
