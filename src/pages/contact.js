@@ -19,7 +19,7 @@ class ContactIndex extends React.Component {
         <MainLeft bgColor="#EFC8A5">
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
-            <p className={styles.hello}>hallo.</p>
+            <p className={styles.hello}>kontakt.</p>
             <p className={styles.introduction}>
               Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken
               kann. Es war nicht leicht zu verstehen, was es bedeutet, ein
