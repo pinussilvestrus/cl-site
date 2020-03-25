@@ -2,10 +2,13 @@ import React from "react";
 import { graphql } from "gatsby";
 import get from "lodash/get";
 
+import styles from "./index.module.css";
+
 import Navigation from "../components/navigation";
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
+import Hero from "../components/hero";
 
 class RootIndex extends React.Component {
   render() {
@@ -15,7 +18,11 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <MainLeft></MainLeft>
+        <MainLeft>
+          <Hero data={author.node}></Hero>
+          <p className={styles.hello}>hallo.</p>
+          <p className={styles.introduction}>Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn. </p>
+        </MainLeft>
         <ContentRight>
           <Navigation />
         </ContentRight>
