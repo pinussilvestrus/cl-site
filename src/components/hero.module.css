@@ -14,3 +14,7 @@
 
   color: #5b1027;
 }
+
+.hero a {
+  text-decoration: none;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import get from "lodash/get";
 
 import styles from "./index.module.css";
@@ -28,6 +28,11 @@ class RootIndex extends React.Component {
               blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen
               Sinn.
             </p>
+            <div className={styles.btnContainer}>
+              <Link to="/projects/">
+                <button>Check out my work</button>
+              </Link>
+            </div>
           </div>
         </MainLeft>
         <ContentRight>
