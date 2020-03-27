@@ -43,3 +43,7 @@
 .home .btn-container a {
   text-decoration: none;
 }
+
+.home .btn-container button:hover {
+  background: #1693A5;
+}
