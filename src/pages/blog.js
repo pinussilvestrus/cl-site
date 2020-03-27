@@ -20,7 +20,7 @@ class BlogIndex extends React.Component {
         <MainLeft bgColor="#FBFCD0">
           <div className={styles.blog}>
             <Hero data={author.node}></Hero>
-            <p className={styles.hello}>blog.</p>
+            <p className={styles.hello}>blog</p>
             <p className={styles.sidebar}></p>
           </div>
         </MainLeft>

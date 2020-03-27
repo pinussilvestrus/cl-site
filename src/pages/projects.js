@@ -20,7 +20,7 @@ class ProjectsIndex extends React.Component {
         <MainLeft bgColor="#BAE4E5">
           <div className={styles.projects}>
             <Hero data={author.node}></Hero>
-            <p className={styles.hello}>projekte.</p>
+            <p className={styles.hello}>projekte</p>
             <p className={styles.sidebar}></p>
           </div>
         </MainLeft>
