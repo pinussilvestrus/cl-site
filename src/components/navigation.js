@@ -9,13 +9,13 @@ export default () => (
         <Link to="/" activeClassName={styles.navigationItemActive}>hallo.</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/projects"  activeClassName={styles.navigationItemActive}>projekte</Link>
+        <Link to="/projects/"  activeClassName={styles.navigationItemActive}>projekte</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/blog" activeClassName={styles.navigationItemActive}>blog</Link>
+        <Link to="/blog/" activeClassName={styles.navigationItemActive}>blog</Link>
       </li>
       <li className={styles.navigationItem}>
-        <Link to="/contact" activeClassName={styles.navigationItemActive}>kontakt</Link>
+        <Link to="/contact/" activeClassName={styles.navigationItemActive}>kontakt</Link>
       </li>
     </ul>
   </nav>

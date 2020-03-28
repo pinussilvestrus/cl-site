@@ -5,11 +5,10 @@ import './base.css'
 
 
 import Container from './container'
-import Navigation from './navigation'
 
 const __PREFIX_PATHS__ = process.env.__PREFIX_PATHS__;
 
-class Template extends React.Component {
+class Layout extends React.Component {
   render() {
     const { children, dimen } = this.props
 
@@ -21,4 +20,4 @@ class Template extends React.Component {
   }
 }
 
-export default Template
+export default Layout
