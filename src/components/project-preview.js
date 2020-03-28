@@ -26,8 +26,6 @@ class ProjectPreview extends React.Component {
       project: { node: project }
     } = this.props;
 
-    console.log(project);
-
     const { displayMore } = this.state;
 
     const moreStyle = {
