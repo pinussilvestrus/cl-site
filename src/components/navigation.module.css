@@ -15,19 +15,35 @@
   font-size: 1.25em;
 }
 
-.navigationItem {
+.navigation-item {
   display: inline-flex;
   align-items: center;
   margin: 0 1em;
 }
 
-.navigationItem a {
+.navigation-item a {
   color: currentColor;
   text-decoration: none;
   font-weight: bold;
 }
 
-.navigationItemActive {
+.navigation-item a:hover {
+  color: black;
+}
+
+.item-projects a:hover {
+  color: #1693A5 !important;
+}
+
+.item-blog a:hover {
+  color: #645100 !important;
+}
+
+.item-contact a:hover {
+  color: #5B1027 !important;
+}
+
+.navigation-item-active {
   color: black !important;
   text-decoration: underline !important;
 }

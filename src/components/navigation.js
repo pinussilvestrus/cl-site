@@ -8,13 +8,13 @@ export default () => (
       <li className={styles.navigationItem}>
         <Link to="/" activeClassName={styles.navigationItemActive}>hallo.</Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li className={`${styles.navigationItem} ${styles.itemProjects}`}>
         <Link to="/projects/"  activeClassName={styles.navigationItemActive}>projekte</Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li className={`${styles.navigationItem} ${styles.itemBlog}`}>
         <Link to="/blog/" activeClassName={styles.navigationItemActive}>blog</Link>
       </li>
-      <li className={styles.navigationItem}>
+      <li className={`${styles.navigationItem} ${styles.itemContact}`}>
         <Link to="/contact/" activeClassName={styles.navigationItemActive}>kontakt</Link>
       </li>
     </ul>
