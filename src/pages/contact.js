@@ -10,9 +10,15 @@ import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
 import Hero from "../components/hero";
 
+import MailSvg from "../resources/mail.svg";
+import LinkedInSvg from "../resources/linkedin.svg";
+import TwitterSvg from "../resources/twitter.svg";
+
 class ContactIndex extends React.Component {
   render() {
     const [author] = get(this, "props.data.allContentfulPerson.edges");
+
+    console.log(author);
 
     return (
       <Layout location={this.props.location} dimen="1fr 1fr">
@@ -30,6 +36,34 @@ class ContactIndex extends React.Component {
         </MainLeft>
         <ContentRight bgColor="#FDFBF5">
           <Navigation />
+          <div className={styles.contactInfo}>
+            <div className={styles.image}></div>
+            <div className={styles.infoBoxes}>
+              <div className={styles.infoBox}>
+                <MailSvg className={styles.icon} />
+                <div>
+                  <p>mail:</p>
+                  <p>{author.node.email}</p>
+                </div>
+              </div>
+
+              <div className={styles.infoBox}>
+                <LinkedInSvg className={styles.icon} />
+                <div>
+                  <p>linkedin:</p>
+                  <a href={`https://www.linkedin.com/in/${author.node.linkedIn}/`} target="_blank">https://www.linkedin.com/in/{author.node.linkedIn}/</a>
+                </div>
+              </div>
+
+              <div className={styles.infoBox}>
+                <TwitterSvg className={styles.icon} />
+                <div>
+                  <p>twitter:</p>
+                  <p>@{author.node.twitter}</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </ContentRight>
       </Layout>
     );
@@ -51,10 +85,10 @@ export const pageQuery = graphql`
       edges {
         node {
           name
-          shortBio {
-            shortBio
-          }
+          twitter
           title
+          linkedIn
+          email
         }
       }
     }

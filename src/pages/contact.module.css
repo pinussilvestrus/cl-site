@@ -9,10 +9,43 @@
 }
 
 .contact .introduction {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: lighter;
   font-size: 20px;
   line-height: 30px;
   text-align: right;
+}
+
+.contact-info {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+
+  color: #000000;
+
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  margin-top: 5rem;
+  margin-left: -2rem;
+}
+
+.info-box {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  margin-bottom: 1rem;
+}
+
+.info-box div {
+  margin: auto 0.5rem auto 0.5rem;
+}
+
+.info-box p {
+  margin: 0;
+}
+
+.icon {
+  height: auto;
 }
