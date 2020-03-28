@@ -1,0 +1,32 @@
+.preview {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-size: 14px;
+  background: #ffffff;
+}
+
+.preview-image {
+  background: #ffffff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  width: auto;
+  height: auto;
+  cursor: pointer;
+}
+
+.preview-image:hover {
+  background: #F1DF91;
+}
+
+.post-title {
+  font-weight: 600;
+  color: black;
+}
+
+.preview-content {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}

@@ -9,23 +9,61 @@ import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
 import Hero from "../components/hero";
+import PostPreview from "../components/post-preview";
+
 
 class BlogIndex extends React.Component {
   render() {
-    const posts = get(this, "props.data.allContentfulBlogPost.edges");
+    const posts = [
+      {
+        id: "1",
+        title: "Blogartikel 1",
+        description:
+          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+      },
+      {
+        id: "2",
+        title: "Blogartikel 2",
+        description:
+          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+      },
+      {
+        id: "3",
+        title: "Blogartikel 3",
+        description:
+          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+      },
+      {
+        id: "3",
+        title: "Blogartikel 4",
+        description:
+          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+      }
+    ];
+    
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
     return (
-      <Layout location={this.props.location} dimen="0.5fr 1fr">
+      <Layout location={this.props.location} dimen="0.3fr 1fr">
         <MainLeft bgColor="#FBFCD0">
           <div className={styles.blog}>
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>blog</p>
-            <p className={styles.sidebar}></p>
+
+            <ul className={styles.blogNavigation}>
+              {posts.map((post, index) => (
+                <li key={"post-" + index}><a href="#">{post.title}</a></li>
+              ))}
+            </ul>
           </div>
         </MainLeft>
         <ContentRight bgColor="#FBFCD0">
           <Navigation />
+          <div className={styles.postsPreviews}>
+            {posts.map((post, index) => (
+              <PostPreview key={"post-" + index} post={post} />
+            ))}
+          </div>
         </ContentRight>
       </Layout>
     );
