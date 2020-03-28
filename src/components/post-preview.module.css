@@ -18,15 +18,40 @@
 }
 
 .preview-image:hover {
-  background: #F1DF91;
+  background: #f1df91;
 }
 
 .post-title {
+  font-style: normal;
   font-weight: 600;
-  color: black;
+  font-size: 20px;
+  line-height: 30px;
+
+  color: #000000;
+}
+
+.post-timestamp {
+  float: right;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
 }
 
 .preview-content {
   padding: 1rem 1.5rem 1rem 1.5rem;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.more {
+  float: right;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+  text-decoration-line: underline;
+  margin-top: 20px;
+
+  color: #000000;
 }
