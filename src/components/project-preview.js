@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
 
 import styles from "./project-preview.module.css";
 
@@ -23,12 +22,23 @@ class ProjectPreview extends React.Component {
   };
 
   render() {
-    const { project } = this.props;
+    const {
+      project: { node: project }
+    } = this.props;
+
+    console.log(project);
 
     const { displayMore } = this.state;
 
     const moreStyle = {
       display: displayMore ? "block" : "none"
+    };
+
+    const previewImageStyle = {
+      backgroundImage: `url(${project.image.file.url})`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "cover"
     };
 
     return (
@@ -38,15 +48,22 @@ class ProjectPreview extends React.Component {
             className={styles.previewImage}
             onMouseOver={this.handleMouseover}
             onMouseLeave={this.handleMouseleave}
+            style={previewImageStyle}
           >
-            <div className={styles.more} style={moreStyle}>
-              mehr erfahren
+            <div className={styles.hover}>
+              <div className={styles.more} style={moreStyle}>
+                mehr erfahren
+              </div>
             </div>
           </div>
         </Link>
         <div className={styles.previewContent}>
-          <span className={styles.projectTitle}>{project.title}.</span>
-          {project.description}
+          <span className={styles.projectTitle}>{project.title}</span>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: project.description.childMarkdownRemark.html
+            }}
+          ></p>
         </div>
       </div>
     );

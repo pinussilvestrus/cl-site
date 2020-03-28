@@ -13,33 +13,35 @@ import ProjectPreview from "../components/project-preview";
 
 class ProjectsIndex extends React.Component {
   render() {
-    // todo(pinussilvestrus): get from contentful API
-    const projects = [
-      {
-        id: "1",
-        title: "Projektitel 1",
-        description:
-          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
-      },
-      {
-        id: "2",
-        title: "Projektitel 2",
-        description:
-          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
-      },
-      {
-        id: "3",
-        title: "Projektitel 3",
-        description:
-          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
-      },
-      {
-        id: "3",
-        title: "Projektitel 4",
-        description:
-          " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
-      }
-    ];
+
+    // const fakeProjects = [
+    //   {
+    //     id: "1",
+    //     title: "Projektitel 1",
+    //     description:
+    //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+    //   },
+    //   {
+    //     id: "2",
+    //     title: "Projektitel 2",
+    //     description:
+    //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+    //   },
+    //   {
+    //     id: "3",
+    //     title: "Projektitel 3",
+    //     description:
+    //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+    //   },
+    //   {
+    //     id: "3",
+    //     title: "Projektitel 4",
+    //     description:
+    //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
+    //   }
+    // ];
+
+    const projects = get(this, "props.data.allContentfulProject.edges");
 
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
@@ -52,7 +54,7 @@ class ProjectsIndex extends React.Component {
             
             <ul className={styles.projectNavigation}>
               {projects.map((project, index) => (
-                <li key={"project-" + index}><a href="#">{project.title}</a></li>
+                <li key={"project-" + index}><a href="#">{project.node.title}</a></li>
               ))}
             </ul>
           </div>
@@ -79,18 +81,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulProject(limit: 100) {
       edges {
         node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+          title,
+          image: image {
+            file {
+              url
+              fileName
+              contentType
             }
-          }
+          },
           description {
             childMarkdownRemark {
               html
