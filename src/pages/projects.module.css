@@ -8,11 +8,29 @@
   color: black;
 }
 
-.projects .sidebar {
-  font-family: 'Poppins', sans-serif;
+.project-navigation {
+  font-family: Poppins;
   font-style: normal;
-  font-weight: lighter;
-  font-size: 20px;
-  line-height: 30px;
-  text-align: left;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333333;
+  padding-inline-start: 0;
+
+  list-style-type: none;
+}
+
+.project-navigation li {
+  margin-bottom: 1.3rem;
+}
+
+.project-navigation a {
+  text-decoration: none;
+}
+
+.project-previews {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 5rem;
+  margin-left: -2rem;
 }
