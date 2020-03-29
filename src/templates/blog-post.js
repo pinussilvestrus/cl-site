@@ -22,7 +22,7 @@ class BlogPostTemplate extends React.Component {
         <MainLeft bgColor="#FBFCD0">
           <div className={styles.blog}>
             <Hero data={author.node}></Hero>
-            <p className={styles.hello}>blog</p>
+            <Link to="/blog/" className={styles.hello}><p>blog</p></Link>
 
             <ul className={styles.blogNavigation}>
               {posts.map((post, index) => (
@@ -42,7 +42,7 @@ class BlogPostTemplate extends React.Component {
             Zurück zur Blog-Übersicht
           </Link>
           <div className={styles.blogPostContent}>
-            <p className={styles.publishDate}>{post.publishDate}</p>
+            <p className={styles.publishDate}>{post.publishDate}</p><br/>
             <h1 className={styles.postTitle}>{post.title}</h1>
             <div
               className={styles.content}
