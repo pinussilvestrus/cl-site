@@ -43,7 +43,7 @@ class ContactIndex extends React.Component {
                 <MailSvg className={styles.icon} />
                 <div>
                   <p>mail:</p>
-                  <p>{author.node.email}</p>
+                  <a href={`mailto:${author.node.email}`}><p>{author.node.email}</p></a>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ class ContactIndex extends React.Component {
                 <TwitterSvg className={styles.icon} />
                 <div>
                   <p>twitter:</p>
-                  <p>@{author.node.twitter}</p>
+                  <a href={`https://twitter.com/${author.node.twitter}/`} target="_blank"><p>@{author.node.twitter}</p></a>
                 </div>
               </div>
             </div>
