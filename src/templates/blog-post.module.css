@@ -1,10 +1,79 @@
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.blog .hello {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 45px;
+  text-align: left;
+  color: black;
+}
 
-  height: 12.5em;
-  background: #e1e1e1;
-  margin: -1em -2.5em 1em;
-  font-size: 2em
+.blog-navigation {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #333333;
+  padding-inline-start: 0;
+
+  list-style-type: none;
+}
+
+.blog-navigation li {
+  margin-bottom: 1.3rem;
+}
+
+.blog-navigation a {
+  text-decoration: none;
+}
+
+.back {
+  margin: 4rem 2rem 0 2rem;
+}
+
+.blog-post-content {
+  margin: 0.5rem 2rem 2rem 2rem;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  padding: 1rem 2rem 1rem 2rem;
+}
+
+.post-title {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 30px;
+
+  color: #000000;
+}
+
+.publish-date {
+  float: right;
+}
+
+.content {
+  font-family: Poppins;
+  color: #000000;
+  position: relative;
+}
+
+.content p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.content strong {
+  font-size: large;
+}
+
+.content img {
+  margin: 1rem auto 1rem auto;
+  width: 30%;
+}
+
+.content p:last-of-type img {
+  width: 100%;
 }

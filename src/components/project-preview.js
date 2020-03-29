@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 
 import styles from "./project-preview.module.css";
 
-// todo(pinussilvestrus): add project preview images
 class ProjectPreview extends React.Component {
   state = {
     displayMore: false

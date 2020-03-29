@@ -1,50 +1,70 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import get from 'lodash/get'
-import Img from 'gatsby-image'
-import Layout from '../components/layout'
+import React from "react";
+import { graphql, Link } from "gatsby";
+import get from "lodash/get";
 
-import heroStyles from '../components/hero.module.css'
+import Navigation from "../components/navigation";
+import Layout from "../components/layout";
+import MainLeft from "../components/main-left";
+import ContentRight from "../components/content-right";
+import Hero from "../components/hero";
+
+import styles from "./blog-post.module.css";
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulBlogPost')
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const posts = get(this, "props.data.allContentfulBlogPost.edges");
+    const [author] = get(this, "props.data.allContentfulPerson.edges");
+
+    const post = get(this.props, "data.contentfulBlogPost");
 
     return (
-      <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
+      <Layout location={this.props.location} dimen="0.3fr 1fr">
+        <MainLeft bgColor="#FBFCD0">
+          <div className={styles.blog}>
+            <Hero data={author.node}></Hero>
+            <p className={styles.hello}>blog</p>
+
+            <ul className={styles.blogNavigation}>
+              {posts.map((post, index) => (
+                <li key={"post-" + index}>
+                  <a href={`/blog/${post.node.slug}/`}>
+                    <i>{post.node.publishDate}: </i>
+                    <b>{post.node.title}</b>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: 'block',
-              }}
-            >
-              {post.publishDate}
-            </p>
+        </MainLeft>
+        <ContentRight bgColor="#FBFCD0">
+          <Navigation />
+          <Link to="/blog/" className={styles.back}>
+            Zurück zur Blog-Übersicht
+          </Link>
+          <div className={styles.blogPostContent}>
+            <p className={styles.publishDate}>{post.publishDate}</p>
+            <h1 className={styles.postTitle}>{post.title}</h1>
             <div
+              className={styles.content}
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: post.description.childMarkdownRemark.html
               }}
             />
+            <div
+              className={styles.content}
+              dangerouslySetInnerHTML={{
+                __html: post.body.childMarkdownRemark.html
+              }}
+            />
+            <br />
           </div>
-        </div>
+        </ContentRight>
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -55,10 +75,10 @@ export const pageQuery = graphql`
     }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+      publishDate(formatString: "DD MMMM YYYY hh:mm", locale: "de")
+      description {
+        childMarkdownRemark {
+          html
         }
       }
       body {
@@ -67,5 +87,27 @@ export const pageQuery = graphql`
         }
       }
     }
+    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+      edges {
+        node {
+          title
+          slug
+          publishDate(formatString: "DD MMMM YYYY", locale: "de")
+        }
+      }
+    }
+    allContentfulPerson(
+      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
+    ) {
+      edges {
+        node {
+          name
+          shortBio {
+            shortBio
+          }
+          title
+        }
+      }
+    }
   }
-`
+`;

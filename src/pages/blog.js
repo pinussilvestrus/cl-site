@@ -11,43 +11,40 @@ import ContentRight from "../components/content-right";
 import Hero from "../components/hero";
 import PostPreview from "../components/post-preview";
 
-
 class BlogIndex extends React.Component {
   render() {
     // const fakePosts = [
     //   {
     //     id: "1",
     //     title: "Blogartikel 1",
-    //     timestamp: '25. März 2020 13:45', 
+    //     timestamp: '25. März 2020 13:45',
     //     description:
     //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
     //   },
     //   {
     //     id: "2",
     //     title: "Blogartikel 2",
-    //     timestamp: '25. März 2020 13:45', 
+    //     timestamp: '25. März 2020 13:45',
     //     description:
     //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
     //   },
     //   {
     //     id: "3",
     //     title: "Blogartikel 3",
-    //     timestamp: '25. März 2020 13:45', 
+    //     timestamp: '25. März 2020 13:45',
     //     description:
     //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
     //   },
     //   {
     //     id: "3",
     //     title: "Blogartikel 4",
-    //     timestamp: '25. März 2020 13:45', 
+    //     timestamp: '25. März 2020 13:45',
     //     description:
     //       " Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken kann. Es war nicht leicht zu verstehen, was es bedeutet, ein blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen Sinn."
     //   }
     // ];
 
     const posts = get(this, "props.data.allContentfulBlogPost.edges");
-
-    console.log(posts);
 
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
@@ -60,7 +57,12 @@ class BlogIndex extends React.Component {
 
             <ul className={styles.blogNavigation}>
               {posts.map((post, index) => (
-                <li key={"post-" + index}><a href="#">{post.node.title}</a></li>
+                <li key={"post-" + index}>
+                  <a href={`/blog/${post.node.slug}/`}>
+                    <i>{post.node.short}: </i>
+                    <b>{post.node.title}</b>
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
@@ -88,26 +90,27 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-        edges {
-          node {
-            title
-            slug
-            publishDate(formatString: "DD MMMM YYYY hh:mm", locale: "de")
-            heroImage: heroImage {
-              file {
-                url
-                fileName
-                contentType
-              }
-            } 
-            description {
-              childMarkdownRemark {
-                html
-              }
+      edges {
+        node {
+          title
+          slug
+          publishDate(formatString: "DD MMMM YYYY hh:mm", locale: "de")
+          short: publishDate(formatString: "DD MMMM YYYY", locale: "de")
+          heroImage: heroImage {
+            file {
+              url
+              fileName
+              contentType
+            }
+          }
+          description {
+            childMarkdownRemark {
+              html
             }
           }
         }
       }
+    }
     allContentfulPerson(
       filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
     ) {
@@ -123,24 +126,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-// allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-//   edges {
-//     node {
-//       title
-//       slug
-//       publishDate(formatString: "MMMM Do, YYYY")
-//       tags
-//       heroImage {
-//         fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-//           ...GatsbyContentfulFluid_tracedSVG
-//         }
-//       }
-//       description {
-//         childMarkdownRemark {
-//           html
-//         }
-//       }
-//     }
-//   }
-// }
