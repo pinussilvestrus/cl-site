@@ -27,7 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
         }	
 
         const posts = result.data.allContentfulBlogPost.edges	
-        console.log(posts);
+        
         posts.forEach(post => {	
           createPage({	
             path: `/blog/${post.node.slug}/`,	
