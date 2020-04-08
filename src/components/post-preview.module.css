@@ -12,6 +12,7 @@
 @media only screen and (max-width: 600px) {
   .preview {
     display: block;
+    margin-left: 0;
   }
 
   .preview-image {

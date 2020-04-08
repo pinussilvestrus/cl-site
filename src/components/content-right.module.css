@@ -5,3 +5,12 @@
   padding-right: 50px;
   height: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+  .content-right {
+    display: block;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 100%;
+  }
+}

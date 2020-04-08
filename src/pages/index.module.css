@@ -1,3 +1,11 @@
+@media only screen and (max-width: 600px) {
+  .home {
+    height: 100vh;
+    padding: 0.1rem 0 1rem 0;
+  }
+}
+
+
 .home .hello {
   font-family: "Lobster";
   font-style: normal;
