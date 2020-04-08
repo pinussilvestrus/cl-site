@@ -2,5 +2,6 @@
   grid-column: 1;
   background: #FDFBF5;
   padding-left: 50px;
-  padding-right: 50px
+  padding-right: 50px;
+  height: 100%;
 }

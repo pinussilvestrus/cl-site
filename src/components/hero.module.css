@@ -11,6 +11,7 @@
   font-weight: bold;
   font-size: 36px;
   line-height: 49px;
+  white-space: nowrap;
 
   color: #5b1027;
 }

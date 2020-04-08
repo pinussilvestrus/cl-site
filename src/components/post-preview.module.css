@@ -9,6 +9,21 @@
   background: #ffffff;
 }
 
+@media only screen and (max-width: 600px) {
+  .preview {
+    display: block;
+  }
+
+  .preview-image {
+    width: 100% !important;
+    height: 200px !important;
+  }
+
+  .more-content {
+    line-height: 0 !important;
+  }
+}
+
 .preview a {
   text-decoration: none;
 }
