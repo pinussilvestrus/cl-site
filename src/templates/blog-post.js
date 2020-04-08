@@ -43,9 +43,11 @@ class BlogPostTemplate extends React.Component {
         <ContentRight bgColor="#FBFCD0">
           <Navigation />
 
-          <div className={styles.blog}>
+          {isMobile() && (
+            <div className={styles.blog}>
               <Hero data={author.node}></Hero>
-          </div>
+            </div>
+          )}
 
           <Link to="/blog/" className={styles.back}>
             Zurück zur Blog-Übersicht
