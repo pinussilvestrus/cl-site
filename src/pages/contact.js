@@ -17,8 +17,23 @@ import TwitterSvg from "../resources/twitter.svg";
 import isMobile from '../util/isMobile';
 
 class ContactIndex extends React.Component {
+
+  state = {
+    isMobile: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      isMobile: isMobile(window)
+    })
+  }
+
   render() {
     const [author] = get(this, "props.data.allContentfulPerson.edges");
+
+    const {
+      isMobile
+    } = this.state;
 
     return (
       <Layout location={this.props.location} dimen="1fr 1fr">
@@ -33,12 +48,12 @@ class ContactIndex extends React.Component {
               Sinn.
             </p>
 
-            {isMobile() && (
+            {isMobile && (
                <ContactInfo author={author} />
             )}
           </div>
         </MainLeft>
-        {!isMobile() && (
+        {!isMobile && (
           <ContentRight bgColor="#FDFBF5">
             <Navigation />
             <ContactInfo author={author} />

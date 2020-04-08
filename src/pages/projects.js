@@ -14,6 +14,16 @@ import ProjectPreview from "../components/project-preview";
 import isMobile from '../util/isMobile';
 
 class ProjectsIndex extends React.Component {
+  state = {
+    isMobile: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      isMobile: isMobile(window)
+    })
+  }
+
   render() {
 
     // const fakeProjects = [
@@ -47,9 +57,13 @@ class ProjectsIndex extends React.Component {
 
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
+    const {
+      isMobile
+    } = this.state;
+
     return (
       <Layout location={this.props.location} dimen="0.3fr 1fr">
-        {!isMobile() && (
+        {!isMobile && (
           <MainLeft bgColor="#BAE4E5">
             <div className={styles.projects}>
               <Hero data={author.node}></Hero>
@@ -67,7 +81,7 @@ class ProjectsIndex extends React.Component {
         )}
         <ContentRight bgColor="#BAE4E5">
           <Navigation />
-          {isMobile() && (
+          {isMobile && (
             <div className={styles.projects}>
               <Hero data={author.node}></Hero>
               <p className={styles.hello}>projekte</p>
@@ -80,7 +94,7 @@ class ProjectsIndex extends React.Component {
             </div>
           )}
 
-          {!isMobile() && (
+          {!isMobile && (
             <div className={styles.projectPreviews}>
               {projects.map((project, index) => (
                 <ProjectPreview key={"project-" + index} project={project} />

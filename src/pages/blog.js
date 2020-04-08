@@ -14,6 +14,17 @@ import PostPreview from "../components/post-preview";
 import isMobile from '../util/isMobile';
 
 class BlogIndex extends React.Component {
+
+  state = {
+    isMobile: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      isMobile: isMobile(window)
+    })
+  }
+
   render() {
     // const fakePosts = [
     //   {
@@ -50,9 +61,13 @@ class BlogIndex extends React.Component {
 
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
+    const {
+      isMobile
+    } = this.state;
+
     return (
       <Layout location={this.props.location} dimen="0.3fr 1fr">
-        {!isMobile() && (
+        {!isMobile && (
           <MainLeft bgColor="#FBFCD0">
             <div className={styles.blog}>
               <Hero data={author.node}></Hero>
@@ -74,7 +89,7 @@ class BlogIndex extends React.Component {
         <ContentRight bgColor="#FBFCD0">
           <Navigation />
 
-          {isMobile() && (
+          {isMobile && (
             <div className={styles.blog}>
               <Hero data={author.node}></Hero>
               <p className={styles.hello}>blog</p>
@@ -87,7 +102,7 @@ class BlogIndex extends React.Component {
             </div>
           )}
 
-          {!isMobile() && (
+          {!isMobile && (
             <div className={styles.postsPreviews}>
               {posts.map((post, index) => (
                 <PostPreview key={"post-" + index} post={post.node} />

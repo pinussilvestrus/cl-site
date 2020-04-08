@@ -13,15 +13,30 @@ import isMobile from '../util/isMobile';
 import styles from "./blog-post.module.css";
 
 class BlogPostTemplate extends React.Component {
+
+  state = {
+    isMobile: false
+  }
+
+  componentDidMount() {
+    this.setState({
+      isMobile: isMobile(window)
+    })
+  }
+
   render() {
     const posts = get(this, "props.data.allContentfulBlogPost.edges");
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
     const post = get(this.props, "data.contentfulBlogPost");
 
+    const {
+      isMobile
+    } = this.state;
+
     return (
       <Layout location={this.props.location} dimen="0.3fr 1fr">
-        {!isMobile() && (
+        {!isMobile && (
           <MainLeft bgColor="#FBFCD0">
             <div className={styles.blog}>
               <Hero data={author.node}></Hero>
@@ -45,7 +60,7 @@ class BlogPostTemplate extends React.Component {
         <ContentRight bgColor="#FBFCD0">
           <Navigation />
 
-          {isMobile() && (
+          {isMobile && (
             <div className={styles.blog}>
               <Hero data={author.node}></Hero>
             </div>
