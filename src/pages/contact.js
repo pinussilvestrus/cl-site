@@ -5,6 +5,8 @@ import get from "lodash/get";
 import styles from "./contact.module.css";
 
 import Navigation from "../components/navigation";
+import MobileNavigation from "../components/mobile-navigation";
+
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
@@ -38,6 +40,7 @@ class ContactIndex extends React.Component {
     return (
       <Layout location={this.props.location} dimen="1fr 1fr">
         <MainLeft bgColor="#EFC8A5">
+          {isMobile && <MobileNavigation />}
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>kontakt</p>
@@ -48,9 +51,7 @@ class ContactIndex extends React.Component {
               Sinn.
             </p>
 
-            {isMobile && (
-               <ContactInfo author={author} />
-            )}
+            {isMobile && <ContactInfo author={author} />}
           </div>
         </MainLeft>
         {!isMobile && (

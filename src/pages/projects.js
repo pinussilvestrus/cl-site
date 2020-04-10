@@ -5,6 +5,8 @@ import get from "lodash/get";
 import styles from "./projects.module.css";
 
 import Navigation from "../components/navigation";
+import MobileNavigation from "../components/mobile-navigation";
+
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
@@ -80,6 +82,7 @@ class ProjectsIndex extends React.Component {
           </MainLeft>
         )}
         <ContentRight bgColor="#BAE4E5">
+          {isMobile && <MobileNavigation />}
           <Navigation />
           {isMobile && (
             <div className={styles.projects}>

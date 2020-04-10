@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby";
 import get from "lodash/get";
 
 import Navigation from "../components/navigation";
+import MobileNavigation from "../components/mobile-navigation";
+
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
@@ -58,6 +60,7 @@ class BlogPostTemplate extends React.Component {
           </MainLeft>
         )}
         <ContentRight bgColor="#FBFCD0">
+          {isMobile && <MobileNavigation />}
           <Navigation />
 
           {isMobile && (

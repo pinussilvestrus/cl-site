@@ -5,6 +5,8 @@ import get from "lodash/get";
 import styles from "./blog.module.css";
 
 import Navigation from "../components/navigation";
+import MobileNavigation from "../components/mobile-navigation";
+
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
@@ -87,6 +89,7 @@ class BlogIndex extends React.Component {
           </MainLeft>
         )}
         <ContentRight bgColor="#FBFCD0">
+          {isMobile && <MobileNavigation />}
           <Navigation />
 
           {isMobile && (

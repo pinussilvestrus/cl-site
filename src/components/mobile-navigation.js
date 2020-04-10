@@ -2,6 +2,10 @@ import React from 'react';
 
 import { slide as Menu } from 'react-burger-menu'
 
+import { Link } from "gatsby";
+
+import navigationStyles from './mobile-navigation.module.css';
+
 export default class MobileNavigation extends React.Component {
   showSettings (event) {
     event.preventDefault();
@@ -9,14 +13,13 @@ export default class MobileNavigation extends React.Component {
 
   render () {
 
-    var styles = {
+    const styles = {
         bmBurgerButton: {
           position: 'fixed',
           width: '42px',
           height: '30px',
           right: '36px',
           top: '36px',
-          background: 'white',
           padding: '10px 5px 10px 5px',
           background: '#FFFFFF',
           boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
@@ -35,42 +38,67 @@ export default class MobileNavigation extends React.Component {
           background: '#a90000'
         },
         bmCrossButton: {
-          height: '24px',
-          width: '24px'
+          height: '30px',
+          width: '30px',
+          top: '15px',
+          right: '15px'
         },
         bmCross: {
-          background: '#bdc3c7'
+          background: 'black'
         },
         bmMenuWrap: {
           position: 'fixed',
           height: '100%'
         },
         bmMenu: {
-          background: '#373a47',
+          background: 'white',
           padding: '2.5em 1.5em 0',
-          fontSize: '1.15em'
+          fontSize: '1.15em',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)'
         },
         bmMorphShape: {
-          fill: '#373a47'
+          fill: 'none'
         },
         bmItemList: {
           color: '#b8b7ad',
           padding: '0.8em'
         },
         bmItem: {
-          display: 'inline-block'
+          display: 'block'
         },
         bmOverlay: {
-          background: 'rgba(0, 0, 0, 0.3)'
+          background: 'none'
         }
     }
 
     return (
       <Menu styles={styles} right>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/blog">Blog</a>
-        <a id="about" className="menu-item" href="/projects">Projekte</a>
-        <a id="contact" className="menu-item" href="/contact">Kontakt</a>
+        <ul className={navigationStyles.navigation}>
+          <li className={navigationStyles.navigationItem}>
+            <Link to="/" activeClassName={navigationStyles.navigationItemActive}>
+              hallo.
+            </Link>
+          </li>
+          <li className={`${navigationStyles.navigationItem} ${navigationStyles.itemProjects}`}>
+            <Link to="/projects/" activeClassName={navigationStyles.navigationItemActive}>
+              projekte
+            </Link>
+          </li>
+          <li className={`${navigationStyles.navigationItem} ${navigationStyles.itemBlog}`}>
+            <Link
+              to="/blog/"
+              partiallyActive={true}
+              activeClassName={navigationStyles.navigationItemActive}
+            >
+              blog
+            </Link>
+          </li>
+          <li className={`${navigationStyles.navigationItem} ${navigationStyles.itemContact}`}>
+            <Link to="/contact/" activeClassName={navigationStyles.navigationItemActive}>
+              kontakt
+            </Link>
+          </li>
+        </ul>
       </Menu>
     );
   }
