@@ -15,11 +15,11 @@ export default class MobileNavigation extends React.Component {
 
     const styles = {
         bmBurgerButton: {
-          position: 'fixed',
+          position: 'absolute',
           width: '42px',
           height: '30px',
-          right: '36px',
-          top: '36px',
+          right: '20px',
+          top: '30px',
           padding: '10px 5px 10px 5px',
           background: '#FFFFFF',
           boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',

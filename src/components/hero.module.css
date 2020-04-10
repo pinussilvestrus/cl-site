@@ -16,6 +16,13 @@
   color: #5b1027;
 }
 
+@media only screen and (max-width: 350px) {
+  .heroTitle {
+    font-size: 28px;
+  }
+}
+
+
 .hero a {
   text-decoration: none;
 }
