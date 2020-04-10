@@ -45,10 +45,7 @@ class ContactIndex extends React.Component {
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>kontakt</p>
             <p className={styles.introduction}>
-              Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken
-              kann. Es war nicht leicht zu verstehen, was es bedeutet, ein
-              blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen
-              Sinn.
+              {author.node.shortBio.shortBio}
             </p>
 
             {isMobile && <ContactInfo author={author} />}
@@ -124,6 +121,9 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          shortBio {
+            shortBio
+          }
           name
           twitter
           title

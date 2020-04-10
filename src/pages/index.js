@@ -31,6 +31,8 @@ class RootIndex extends React.Component {
     const posts = get(this, "props.data.allContentfulBlogPost.edges");
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
+    debugger;
+
     const {
       isMobile
     } = this.state;
@@ -45,10 +47,7 @@ class RootIndex extends React.Component {
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>hallo.</p>
             <p className={styles.introduction}>
-              Ich bin ein kleiner Blindtext. Und zwar schon so lange ich denken
-              kann. Es war nicht leicht zu verstehen, was es bedeutet, ein
-              blinder Text zu sein: Man ergibt keinen Sinn. Wirklich keinen
-              Sinn.
+              {author.node.shortBio.shortBio}
             </p>
             <div className={styles.btnContainer}>
               <Link to="/projects/">
