@@ -45,6 +45,8 @@ class ContactIndex extends React.Component {
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
 
+            {isMobile && <p className={styles.contactHello}>kontakt</p>}
+
             <div className={styles.meowImage}>
               <img src={meow.node.image.file.url}/>
             </div>
