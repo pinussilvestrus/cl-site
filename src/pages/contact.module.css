@@ -1,10 +1,10 @@
-.contact .hello {
+.contact-hello {
   font-family: "Lobster";
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 45px;
-  text-align: right;
+  text-align: left;
   color: black;
 }
 
@@ -26,15 +26,12 @@
 
   color: #000000;
 
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
   margin-top: 5rem;
-  margin-left: -2rem;
 }
 
 .info-box {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
+  grid-template-columns: 0.1fr 1fr;
   margin-bottom: 1rem;
 }
 
@@ -79,7 +76,7 @@
 
 .meow-image img {
   margin: auto;
-  max-width: 80%;
+  max-width: 60%;
   top: 0;
   left: 0;
   right: 0;

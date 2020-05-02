@@ -44,7 +44,6 @@ class ContactIndex extends React.Component {
           {isMobile && <MobileNavigation />}
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
-            <p className={styles.hello}>kontakt</p>
 
             <div className={styles.meowImage}>
               <img src={meow.node.image.file.url}/>
@@ -56,6 +55,7 @@ class ContactIndex extends React.Component {
         {!isMobile && (
           <ContentRight bgColor="#FDFBF5">
             <Navigation />
+            <p className={styles.contactHello}>kontakt</p>
             <ContactInfo author={author} />
           </ContentRight>
         )}
@@ -69,7 +69,6 @@ export default ContactIndex;
 function ContactInfo({author}) {
   return (
     <div className={styles.contactInfo}>
-      <div className={styles.image}></div>
       <div className={styles.infoBoxes}>
         <div className={styles.infoBox}>
           <MailSvg className={styles.icon} />
