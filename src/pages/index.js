@@ -39,6 +39,7 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} dimen="1fr 1fr">
+
         <MainLeft bgColor={isMobile ? '#EFC8A5' : null}>
           {isMobile &&
             <MobileNavigation />

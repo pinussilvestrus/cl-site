@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
+
+import { Helmet } from "react-helmet"
 
 import ReactGA from "react-ga";
 
 import "./base.css";
 
 import Container from "./container";
-
-const __PREFIX_PATHS__ = process.env.__PREFIX_PATHS__;
 
 class Layout extends React.Component {
 
@@ -21,7 +20,15 @@ class Layout extends React.Component {
   render() {
     const { children, dimen } = this.props;
 
-    return <Container dimen={dimen}>{children}</Container>;
+    return <Container dimen={dimen}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Corinna Laabs Portfolio</title>
+        <link rel="canonical" href="https://corinnalaabs.de" />
+      </Helmet>
+
+      {children}
+    </Container>;
   }
 }
 
