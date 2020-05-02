@@ -44,9 +44,6 @@ class ContactIndex extends React.Component {
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>kontakt</p>
-            <p className={styles.introduction}>
-              {author.node.shortBio.shortBio}
-            </p>
 
             {isMobile && <ContactInfo author={author} />}
           </div>
@@ -121,9 +118,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          shortBio {
-            shortBio
-          }
           name
           twitter
           title

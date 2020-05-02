@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Img from "gatsby-image"
 import get from "lodash/get";
 
 import styles from "./index.module.css";
@@ -31,25 +32,24 @@ class RootIndex extends React.Component {
     const posts = get(this, "props.data.allContentfulBlogPost.edges");
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
-    debugger;
-
     const {
       isMobile
     } = this.state;
 
     return (
       <Layout location={this.props.location} dimen="1fr 1fr">
-
-        <MainLeft bgColor={isMobile ? '#EFC8A5' : null}>
-          {isMobile &&
-            <MobileNavigation />
-          }
+        <MainLeft bgColor={isMobile ? "#EFC8A5" : null}>
+          {isMobile && <MobileNavigation />}
           <div className={styles.home}>
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>hallo.</p>
-            <p className={styles.introduction}>
-              {author.node.shortBio.shortBio}
-            </p>
+            <div className={styles.introduction}>
+                Ich bin <span>Corinna.</span><br/>
+                Mein Herz schlägt für <span className={styles.blue}><br/>
+                UX/Usability</span>, <span className={styles.green}>Zeichnen</span>, <br/>
+                <span className={styles.yellow}>Musik</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
+                meinen &nbsp;<span className={styles.pink}>Kater Momo</span>.
+            </div>
             <div className={styles.btnContainer}>
               <Link to="/projects/">
                 <button>Check out my work</button>
@@ -57,11 +57,14 @@ class RootIndex extends React.Component {
             </div>
           </div>
         </MainLeft>
-        {!isMobile &&
+        {!isMobile && (
           <ContentRight>
             <Navigation />
+            <div className={styles.profileImage}>
+              <img src={author.node.heroImage.file.url}></img>
+            </div>
           </ContentRight>
-        }
+        )}
       </Layout>
     );
   }
@@ -82,18 +85,12 @@ export const pageQuery = graphql`
       edges {
         node {
           name
-          shortBio {
-            shortBio
-          }
           title
           heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
+            file {
+              url
+              fileName
+              contentType
             }
           }
         }
