@@ -84,6 +84,7 @@ export default class MobileNavigation extends React.Component {
               projekte
             </Link>
           </li> */}
+          <br />
           <li className={`${navigationStyles.navigationItem} ${navigationStyles.itemBlog}`}>
             <Link
               to="/blog/"

@@ -1,11 +1,3 @@
-@media only screen and (max-width: 600px) {
-  .home {
-    min-height: 100vh;
-    height: 100%;
-    padding: 0.1rem 0 1rem 0;
-  }
-}
-
 .home .hello {
   font-family: "Lobster";
   font-style: normal;
@@ -100,6 +92,30 @@
   background: #FFD297;
 }
 
+.pink a {
+  text-decoration: none;
+}
+
 .pink:hover {
   background: #FFBDF7;
+}
+
+@media only screen and (max-width: 600px) {
+  .home {
+    padding: 0.1rem 0 1rem 0;
+  }
+
+  .home .hello {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  .home .introduction {
+    text-align: left;
+  }
+
+  .home .btn-container {
+    float: left;
+  }
 }

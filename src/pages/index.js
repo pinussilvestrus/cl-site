@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Img from "gatsby-image"
 import get from "lodash/get";
 
 import styles from "./index.module.css";
@@ -48,7 +47,7 @@ class RootIndex extends React.Component {
                 Mein Herz schlägt für <span className={styles.blue}><br/>
                 UX/Usability</span>, <span className={styles.green}>Zeichnen</span>, <br/>
                 <span className={styles.yellow}>Musik</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
-                meinen &nbsp;<span className={styles.pink}>Kater Momo</span>.
+                meinen &nbsp;<span className={styles.pink}><Link to="/contact">Kater Momo</Link></span>.
             </div>
             <div className={styles.btnContainer}>
               <Link to="/blog/">

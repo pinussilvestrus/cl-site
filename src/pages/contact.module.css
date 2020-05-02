@@ -47,10 +47,23 @@
   height: auto;
 }
 
+.meow-image {
+  position: relative;
+  height: 80%;
+  padding: 0 2rem 0 2rem;
+}
+
+.meow-image img {
+  margin: auto;
+  max-width: 60%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 @media only screen and (max-width: 600px) {
   .contact {
-    min-height: 100vh;
-    height: 100%;
     padding: 0.1rem 0 1rem 0;
   }
 
@@ -66,19 +79,8 @@
     margin: 0 !important;
     display: block !important;
   }
-}
 
-.meow-image {
-  position: relative;
-  height: 80%;
-  padding: 0 2rem 0 2rem;
-}
-
-.meow-image img {
-  margin: auto;
-  max-width: 60%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  .meow-image {
+    height: auto;
+  }
 }
