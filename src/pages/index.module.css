@@ -54,7 +54,8 @@
 }
 
 .home .btn-container button:hover {
-  background: #1693a5;
+  background: #FBFDD0;
+  color: #000;
 }
 
 .profile-image {

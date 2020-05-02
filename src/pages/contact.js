@@ -31,7 +31,8 @@ class ContactIndex extends React.Component {
   }
 
   render() {
-    const [author] = get(this, "props.data.allContentfulPerson.edges");
+    const [author] = get(this, "props.data.author.edges");
+    const [meow] = get(this, "props.data.meow.edges");
 
     const {
       isMobile
@@ -44,6 +45,10 @@ class ContactIndex extends React.Component {
           <div className={styles.contact}>
             <Hero data={author.node}></Hero>
             <p className={styles.hello}>kontakt</p>
+
+            <div className={styles.meowImage}>
+              <img src={meow.node.image.file.url}/>
+            </div>
 
             {isMobile && <ContactInfo author={author} />}
           </div>
@@ -113,7 +118,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulPerson(
+    author: allContentfulPerson(
       filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
     ) {
       edges {
@@ -123,6 +128,21 @@ export const pageQuery = graphql`
           title
           linkedIn
           email
+        }
+      }
+    }
+    meow: allContentfulPerson(
+      filter: { contentful_id: { eq: "71jnlrei5kJWaPnYTbFVEG" } }
+    ) {
+      edges {
+        node {
+          image: image {
+            file {
+              url
+              fileName
+              contentType
+            }
+          }
         }
       }
     }

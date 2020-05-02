@@ -51,8 +51,8 @@ class RootIndex extends React.Component {
                 meinen &nbsp;<span className={styles.pink}>Kater Momo</span>.
             </div>
             <div className={styles.btnContainer}>
-              <Link to="/projects/">
-                <button>Check out my work</button>
+              <Link to="/blog/">
+                <button>woran ich gerade arbeite</button>
               </Link>
             </div>
           </div>

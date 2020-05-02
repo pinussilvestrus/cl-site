@@ -10,11 +10,11 @@ export default () => (
           hallo.
         </Link>
       </li>
-      <li className={`${styles.navigationItem} ${styles.itemProjects}`}>
+      {/* <li className={`${styles.navigationItem} ${styles.itemProjects}`}>
         <Link to="/projects/" activeClassName={styles.navigationItemActive}>
           projekte
         </Link>
-      </li>
+      </li> */}
       <li className={`${styles.navigationItem} ${styles.itemBlog}`}>
         <Link
           to="/blog/"
