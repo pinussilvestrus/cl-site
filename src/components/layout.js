@@ -25,6 +25,9 @@ class Layout extends React.Component {
         <meta charSet="utf-8" />
         <title>Corinna Laabs Portfolio</title>
         <link rel="canonical" href="https://corinnalaabs.de" />
+        <meta name="description" content="Corinna Laabs Portfolio"></meta>
+        <meta name="keywords" content="Corinna Laabs, Berlin, Portfolio, UX Professional"></meta>
+        <meta name="author" content="Corinna Laabs"></meta>
       </Helmet>
 
       {children}
