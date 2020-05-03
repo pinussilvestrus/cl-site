@@ -23,10 +23,10 @@ class Layout extends React.Component {
     return <Container dimen={dimen}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Corinna Laabs Portfolio</title>
+        <title>Corinna Laabs Website</title>
         <link rel="canonical" href="https://corinnalaabs.de" />
-        <meta name="description" content="Corinna Laabs Portfolio"></meta>
-        <meta name="keywords" content="Corinna Laabs, Berlin, Portfolio, UX Professional"></meta>
+        <meta name="description" content="Corinna Laabs Website"></meta>
+        <meta name="keywords" content="Corinna Laabs, Berlin, Website, UX Professional"></meta>
         <meta name="author" content="Corinna Laabs"></meta>
         <meta name="google-site-verification" content="g9p0puu6FcsJ4jgeF-mMRCaFRyihrlLc9jSQNkeCpJs" />
       </Helmet>
