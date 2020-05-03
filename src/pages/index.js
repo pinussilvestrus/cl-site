@@ -8,6 +8,7 @@ import Navigation from "../components/navigation";
 import MobileNavigation from "../components/mobile-navigation";
 
 import Layout from "../components/layout";
+import Copyright from "../components/copyright";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
 import Hero from "../components/hero";
@@ -54,6 +55,7 @@ class RootIndex extends React.Component {
                 <button>woran ich gerade arbeite</button>
               </Link>
             </div>
+            {isMobile && <Copyright />}
           </div>
         </MainLeft>
         {!isMobile && (
@@ -62,6 +64,7 @@ class RootIndex extends React.Component {
             <div className={styles.profileImage}>
               <img src={author.node.heroImage.file.url}></img>
             </div>
+            <Copyright />
           </ContentRight>
         )}
       </Layout>

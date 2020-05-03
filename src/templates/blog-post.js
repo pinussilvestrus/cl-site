@@ -8,6 +8,7 @@ import MobileNavigation from "../components/mobile-navigation";
 import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
+import Copyright from "../components/copyright";
 import Hero from "../components/hero";
 
 import isMobile from '../util/isMobile';
@@ -90,6 +91,7 @@ class BlogPostTemplate extends React.Component {
             />
             <br />
           </div>
+          <Copyright style={{bottom: 0}} />
         </ContentRight>
       </Layout>
     );

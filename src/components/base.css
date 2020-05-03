@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
 body {
   font-family: "Arial", Tahoma, Arial, Helvetica, sans-serif;
@@ -68,10 +68,25 @@ a {
   height: 100vh;
 }
 
+.copyright {
+  text-align: right;
+  position: relative;
+  display: block;
+  color: gray;
+  right: -50px;
+  bottom: -30px;
+}
+
 @media only screen and (max-width: 600px) {
   .container {
-    display: block; 
+    display: block;
     overflow: auto;
     height: auto;
+  }
+
+  .copyright {
+    float: left;
+    right: 0;
+    bottom: 0;
   }
 }
