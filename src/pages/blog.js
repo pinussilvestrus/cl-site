@@ -11,6 +11,7 @@ import Layout from "../components/layout";
 import MainLeft from "../components/main-left";
 import ContentRight from "../components/content-right";
 import Hero from "../components/hero";
+import Copyright from "../components/copyright";
 import PostPreview from "../components/post-preview";
 
 import isMobile from '../util/isMobile';
@@ -102,6 +103,8 @@ class BlogIndex extends React.Component {
                   <PostPreview key={"post-" + index} post={post.node} />
                 ))}
               </div>
+
+              <Copyright style={{bottom: 0}} />
             </div>
           )}
 
@@ -110,6 +113,7 @@ class BlogIndex extends React.Component {
               {posts.map((post, index) => (
                 <PostPreview key={"post-" + index} post={post.node} />
               ))}
+              <Copyright style={{bottom: 0}} />
             </div>
           )}
         </ContentRight>
