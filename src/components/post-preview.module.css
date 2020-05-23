@@ -38,17 +38,6 @@
   cursor: pointer;
 }
 
-.hover {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-}
-
-.hover:hover {
-  background: #f1df91;
-  opacity: 0.9;
-}
-
 .post-title {
   font-style: normal;
   font-weight: 600;

@@ -45,11 +45,6 @@ class PostPreview extends React.Component {
             onMouseOver={this.handleMouseover}
             onMouseLeave={this.handleMouseleave}
           >
-            <div className={styles.hover}>
-              <div className={styles.more} style={moreStyle}>
-                mehr erfahren
-              </div>
-            </div>
           </div>
         </Link>
         <div className={styles.previewContent}>
