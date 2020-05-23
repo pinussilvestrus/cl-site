@@ -82,6 +82,13 @@
   line-height: 21px;
 }
 
+.content li {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
 .content strong {
   font-size: large;
 }
