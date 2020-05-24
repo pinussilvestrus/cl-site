@@ -18,7 +18,9 @@ import isMobile from '../util/isMobile';
 class RootIndex extends React.Component {
 
   state = {
-    isMobile: false
+    isMobile: false,
+    artHover: false,
+    catHover: false
   }
 
   componentDidMount() {
@@ -27,13 +29,37 @@ class RootIndex extends React.Component {
     })
   }
 
+  handleArtMouseOver = () => {
+    this.setState({
+      artHover: true
+    });
+  }
+
+  handleArtMouseLeave = () => {
+    this.setState({
+      artHover: false
+    })
+  }
+
+  handleCatMouseOver = () => {
+    this.setState({
+      catHover: true
+    });
+  }
+
+  handleCatMouseLeave = () => {
+    this.setState({
+      catHover: false
+    })
+  }
+
   render() {
-    const siteTitle = get(this, "props.data.site.siteMetadata.title");
-    const posts = get(this, "props.data.allContentfulBlogPost.edges");
     const [author] = get(this, "props.data.allContentfulPerson.edges");
 
     const {
-      isMobile
+      isMobile,
+      artHover,
+      catHover
     } = this.state;
 
     return (
@@ -46,9 +72,9 @@ class RootIndex extends React.Component {
             <div className={styles.introduction}>
                 Ich bin <span>Corinna.</span><br/>
                 Mein Herz schlägt für <span className={styles.blue}><br/>
-                UX/Usability</span>, <span className={styles.green}>Zeichnen</span>, <br/>
+                UX/Usability</span>, <span className={styles.green} onMouseOver={this.handleArtMouseOver} onMouseLeave={this.handleArtMouseLeave}>Zeichnen</span>, <br/>
                 <span className={styles.yellow}>Musik</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
-                meinen &nbsp;<span className={styles.pink}><Link to="/contact">Kater Momo</Link></span>.
+                meinen &nbsp;<span className={styles.pink} onMouseOver={this.handleCatMouseOver} onMouseLeave={this.handleCatMouseLeave}><Link to="/contact">Kater Momo</Link></span>.
             </div>
             <div className={styles.btnContainer}>
               <Link to="/blog/">
@@ -62,7 +88,9 @@ class RootIndex extends React.Component {
           <ContentRight>
             <Navigation />
             <div className={styles.profileImage}>
-              <img src={author.node.heroImage.file.url}></img>
+              {artHover &&  <img src={author.node.artHoverImage.file.url}></img> }
+              {catHover &&  <img src={author.node.catHoverImage.file.url}></img> }
+              {(!catHover && !artHover) && <img src={author.node.heroImage.file.url}></img> }
             </div>
             <Copyright />
           </ContentRight>
@@ -93,6 +121,16 @@ export const pageQuery = graphql`
               url
               fileName
               contentType
+            }
+          }
+          artHoverImage: image2 {
+            file {
+              url
+            }
+          }
+          catHoverImage: image4 {
+            file {
+              url
             }
           }
         }
