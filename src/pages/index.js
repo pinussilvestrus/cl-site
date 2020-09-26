@@ -71,10 +71,11 @@ class RootIndex extends React.Component {
             <p className={styles.hello}>hallo.</p>
             <div className={styles.introduction}>
                 Ich bin <span>Corinna.</span><br/>
-                Mein Herz schlägt für <span className={styles.blue}><br/>
-                UX/Usability</span>, <span className={styles.green} onMouseOver={this.handleArtMouseOver} onMouseLeave={this.handleArtMouseLeave}>Zeichnen</span>, <br/>
-                <span className={styles.yellow}>Kreatives Arbeiten</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
-                meinen &nbsp;<span className={styles.pink} onMouseOver={this.handleCatMouseOver} onMouseLeave={this.handleCatMouseLeave}><Link to="/contact">Kater Momo</Link></span>.
+                Mein Herz schlägt für's <span className={styles.blue}><br/>
+                Problemlösen</span>,<br/> 
+                <span className={styles.green} onMouseOver={this.handleArtMouseOver} onMouseLeave={this.handleArtMouseLeave}>Kreative Arbeiten</span>, <br/>
+                <span className={styles.orange}>Schreiben</span> &amp; <br/>
+                für meinen &nbsp;<span className={styles.pink} onMouseOver={this.handleCatMouseOver} onMouseLeave={this.handleCatMouseLeave}><Link to="/contact">Kater Momo</Link></span>.
             </div>
             <div className={styles.btnContainer}>
               <Link to="/blog/">
