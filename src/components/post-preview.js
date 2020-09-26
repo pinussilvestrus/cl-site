@@ -48,7 +48,7 @@ class PostPreview extends React.Component {
           </div>
         </Link>
         <div className={styles.previewContent}>
-          <p className={styles.postTimestamp}>{post.publishDate}</p>
+          <p className={styles.postTimestamp}>{post.shortDate}</p>
           <br />
           <Link to={`/blog/${post.slug}/`}>
             <p className={styles.postTitle}>{post.title}</p>

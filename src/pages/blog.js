@@ -80,7 +80,7 @@ class BlogIndex extends React.Component {
                 {posts.map((post, index) => (
                   <li key={"post-" + index}>
                     <a href={`/blog/${post.node.slug}/`}>
-                      <i>{post.node.short}: </i>
+                      <i>{post.node.shortDate}: </i>
                       <b>{post.node.title}</b>
                     </a>
                   </li>
@@ -136,8 +136,7 @@ export const pageQuery = graphql`
         node {
           title
           slug
-          publishDate(formatString: "DD MMMM YYYY hh:mm", locale: "de")
-          short: publishDate(formatString: "DD MMMM YYYY", locale: "de")
+          shortDate: publishDate(formatString: "DD MMMM YYYY", locale: "de")
           heroImage: heroImage {
             file {
               url

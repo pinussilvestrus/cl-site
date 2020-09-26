@@ -73,12 +73,12 @@ class RootIndex extends React.Component {
                 Ich bin <span>Corinna.</span><br/>
                 Mein Herz schlägt für <span className={styles.blue}><br/>
                 UX/Usability</span>, <span className={styles.green} onMouseOver={this.handleArtMouseOver} onMouseLeave={this.handleArtMouseLeave}>Zeichnen</span>, <br/>
-                <span className={styles.yellow}>Musik</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
+                <span className={styles.yellow}>Kreatives Arbeiten</span>, <span className={styles.orange}>Schreiben</span> &amp;<br/>
                 meinen &nbsp;<span className={styles.pink} onMouseOver={this.handleCatMouseOver} onMouseLeave={this.handleCatMouseLeave}><Link to="/contact">Kater Momo</Link></span>.
             </div>
             <div className={styles.btnContainer}>
               <Link to="/blog/">
-                <button>woran ich gerade arbeite</button>
+                <button>was mich gerade beschäftigt</button>
               </Link>
             </div>
             {isMobile && <Copyright />}
