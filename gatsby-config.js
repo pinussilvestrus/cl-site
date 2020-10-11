@@ -37,6 +37,15 @@ module.exports = {
           include: /\.svg$/
         }
       }
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Corinna Laabs Portfolio",
+        short_name: "CL Portfolio",
+        start_url: "/",
+        icon: "src/resources/logo.png"
+      }
     }
   ]
 };
