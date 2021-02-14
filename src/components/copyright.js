@@ -4,6 +4,6 @@ import "./base.css";
 
 export default ({ style }) => (
   <div style={style} className='copyright'>
-      © 2020 Corinna Laabs
+      © 2021 Corinna Laabs
   </div>
 );
