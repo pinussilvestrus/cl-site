@@ -18,15 +18,20 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { children, dimen } = this.props;
+    const { 
+      children, 
+      dimen, 
+      title, 
+      metaContent 
+    } = this.props;
 
     return (
       <Container dimen={dimen}>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>Corinna Laabs Website</title>
+          <title>{title ? title : 'Corinna Laabs Website'}</title>
           <link rel="canonical" href="https://corinnalaabs.de" />
-          <meta name="description" content="Corinna Laabs Website"></meta>
+          <meta name="description" content={metaContent ? metaContent : 'Corinna Laabs Website'}></meta>
           <meta
             name="keywords"
             content="Corinna Laabs, Berlin, Website, UX Professional"

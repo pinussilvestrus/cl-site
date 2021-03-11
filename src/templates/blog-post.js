@@ -38,7 +38,11 @@ class BlogPostTemplate extends React.Component {
     } = this.state;
 
     return (
-      <Layout location={this.props.location} dimen="0.3fr 1fr">
+      <Layout 
+        location={this.props.location} 
+        dimen="0.3fr 1fr" 
+        metaContent={post.description.childMarkdownRemark.rawMarkdownBody}
+        title={'Blog - ' + post.title} >
         {!isMobile && (
           <MainLeft bgColor="#FBFCD0">
             <div className={styles.blog}>
@@ -106,7 +110,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "DD MMMM YYYY", locale: "de")
       description {
         childMarkdownRemark {
-          html
+          rawMarkdownBody
         }
       }
       body {
